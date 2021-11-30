@@ -4,39 +4,36 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name="country")
+@Entity(name = "country")
 public class Country {
 
     @Id
-    @Column
+    @Column(name = "Code")
     private String code;
 
-    @Column
+    @Column(name = "Name")
     private String name;
 
-    @Column
+    @Column(name = "Continent")
     private String continent;
 
     @Column(name = "SurfaceArea")
     private Double surfaceArea;
 
+    @Column(name = "Population")
+    private Long population;
 
-    public String getName() {
-        return name;
-    }
 
-    public String getContinent() {
-        return continent;
-    }
-
-    public Double getSurfaceArea() {
-        return surfaceArea;
-    }
 
     @Override
     public String toString() {
-        return "Encja Kraj { kod=" + code + ", " + "name= " + name +
-                ", continent=" + continent + "}";
+        return "Encja Kraj { " +
+                "kod=" + code + ", " +
+                "name= " + name + ", " +
+                "continent=" + continent + "," +
+                "Powierzchnia= " + surfaceArea + ", " +
+                "Populacja= " + population + ", " +
+                " }";
     }
 }
 

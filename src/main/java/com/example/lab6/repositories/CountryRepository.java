@@ -15,4 +15,6 @@ public interface CountryRepository extends CrudRepository<Country, Long> {
     List<Country> findAllByContinent(String continent);
 
     List<Country> findAllBySurfaceAreaBetween(Double cost, Double cost2);
+
+    List<Country> findAllByPopulationLessThan(Long population);
 }

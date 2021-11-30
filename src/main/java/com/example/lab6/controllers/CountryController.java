@@ -39,11 +39,42 @@ public class CountryController {
 
     @RequestMapping(value="/area/min/{min}/max/{max}", method = RequestMethod.GET)
     @ResponseBody
-    public String findByCostBetween(@PathVariable Double min, @PathVariable Double max){
+    public String findByAreaBetween(@PathVariable Double min, @PathVariable Double max){
 
         StringBuilder response = new StringBuilder();
 
         List<Country> countries = countryRepository.findAllBySurfaceAreaBetween(min, max);
+
+        for (Country country :countries) {
+            response.append(country).append("<br>");
+        }
+
+        return response.toString();
+    }
+
+    @RequestMapping(value="/continent/{continent}", method = RequestMethod.GET)
+    @ResponseBody
+    public String findByContinent(@PathVariable String continent){
+
+        StringBuilder response = new StringBuilder();
+
+        List<Country> countries = countryRepository.findAllByContinent(continent);
+
+        for (Country country :countries) {
+            response.append(country).append("<br>");
+        }
+
+        return response.toString();
+    }
+
+
+    @RequestMapping(value="/populationLess/{population}", method = RequestMethod.GET)
+    @ResponseBody
+    public String findByPopulationLess(@PathVariable Long population){
+
+        StringBuilder response = new StringBuilder();
+
+        List<Country> countries = countryRepository.findAllByPopulationLessThan(population);
 
         for (Country country :countries) {
             response.append(country).append("<br>");
