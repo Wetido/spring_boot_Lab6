@@ -81,12 +81,9 @@ public class PageController {
         List<Task> tasks = taskRepository.findAllByCostBetween(min, max);
 
         for (Task task :tasks) {
-            System.out.println(task.getCost());
             response.append(task).append("<br>");
         }
 
-//        tasks.stream(e -> { response.append(e).append("<br>"); });
-        System.out.println(response.toString());
 
         return response.toString();
     }
