@@ -4,6 +4,7 @@ package com.example.lab6.controllers;
 import com.example.lab6.models.Task;
 import com.example.lab6.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +15,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@Controller("pageController")
 public class PageController {
 
-    @Autowired
-    public TaskRepository taskRepository;
+    @Qualifier("tasks")
+    public final TaskRepository taskRepository;
+
+    public PageController(@Qualifier("tasks") TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     @RequestMapping("/")
     @ResponseBody
