@@ -49,4 +49,8 @@ public class Task {
     public void setDone(Boolean done) {
         isDone = done;
     }
+
+    public Double getCost() {
+        return cost;
+    }
 }

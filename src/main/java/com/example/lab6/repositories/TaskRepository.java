@@ -3,6 +3,7 @@ package com.example.lab6.repositories;
 import com.example.lab6.models.Task;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface TaskRepository extends CrudRepository<Task, Long> {
@@ -14,7 +15,7 @@ public interface TaskRepository extends CrudRepository<Task, Long> {
 
     Optional<Task> findByCostLessThan(Double cost);
 
-    Optional<Task> findByCostBetween(Double cost, Double cost2);
+    List<Task> findAllByCostBetween(Double cost, Double cost2);
 
 }
 

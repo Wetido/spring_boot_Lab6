@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 public class PageController {
 
@@ -67,5 +71,21 @@ public class PageController {
         taskRepository.deleteById(id);
     }
 
+    @RequestMapping(value="/cost/{min}/{max}", method = RequestMethod.GET)
+    public String findByCostBetween(@PathVariable double min, @PathVariable double max){
 
+        System.out.println(Double.toString(min) + ", " + Double.toString(max));
+        StringBuilder response = new StringBuilder();
+
+        List<Task> tasks = taskRepository.findAllByCostBetween(min, max);
+
+        for (Task task :tasks) {
+            System.out.println(task.getCost());
+            response.append(task).append("<br>");
+        }
+
+//        tasks.stream(e -> { response.append(e).append("<br>"); });
+
+        return response.toString();
+    }
 }
