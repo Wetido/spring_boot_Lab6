@@ -13,6 +13,7 @@ public class PageController {
     public String mainPage() {
         return "Hello Spring Boot from mainPage() method!";
     }
+
     @RequestMapping("/hello")
     @ResponseBody
     public String pageTwo() {
