@@ -72,6 +72,7 @@ public class PageController {
     }
 
     @RequestMapping(value="/cost/{min}/{max}", method = RequestMethod.GET)
+    @ResponseBody
     public String findByCostBetween(@PathVariable double min, @PathVariable double max){
 
         System.out.println(Double.toString(min) + ", " + Double.toString(max));
@@ -85,6 +86,7 @@ public class PageController {
         }
 
 //        tasks.stream(e -> { response.append(e).append("<br>"); });
+        System.out.println(response.toString());
 
         return response.toString();
     }
