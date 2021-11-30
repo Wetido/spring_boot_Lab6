@@ -33,4 +33,20 @@ public class Task {
                 ", koszt=" + cost + ", wykonane=" + isDone + "}";
     }
 
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCost(Double cost) {
+        this.cost = cost;
+    }
+
+    public void setDone(Boolean done) {
+        isDone = done;
+    }
 }
